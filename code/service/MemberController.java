@@ -29,5 +29,11 @@ class MemberController {
                 return "Success";
     }
     
+    @DeleteMapping ("delete/users/id")
+    String deleteById(int id) {
+        memberRepository.deleteById(id);
+        return "Success";
+    }
+    
     @Autowired MemberRepository memberRepository;
 }

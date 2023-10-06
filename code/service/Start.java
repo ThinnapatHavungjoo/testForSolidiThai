@@ -25,12 +25,29 @@ class Setup {
 
 @Table ("member_info")
 class Member_info {
-    @Id public int id;
+    @Id private int id;
     private String first_name;
     private String last_name;
     private char gender;
     private String email;
-  
+    
+    public Member_info() {}
+    
+    public Member_info(String first_name, String last_name, char gender, String email) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.gender = gender;
+        this.email = email;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public int getId() {
+        return id;
+    }
+    
     public void setFirst_name(String first_name) {
         this.first_name = first_name.substring(0, 1).toUpperCase() + 
                 first_name.substring(1).toLowerCase();
