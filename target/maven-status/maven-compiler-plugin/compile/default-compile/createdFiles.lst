@@ -1,0 +1,5 @@
+service\MemberRepository.class
+service\MemberController.class
+service\Member_info.class
+service\Start.class
+service\Setup.class
