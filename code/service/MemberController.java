@@ -7,29 +7,39 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 class MemberController {
-    @GetMapping("/get/users")
+    @RequestMapping("/get/users")
     Iterable get() {
         return memberRepository.findAll();
     }
     
-    @GetMapping("/get/users/id")
+    @RequestMapping("/get/users/id")
     Optional showById(int id){
         return memberRepository.findById(id);
     }
-    
+
     @RequestMapping("/post/users")
-    public String addUsers(String first_name, String last_name, char gender, 
-            String email) {
-                Member_info addMember = new Member_info();
-                addMember.setFirst_name(first_name);
-                addMember.setLast_name(last_name);
-                addMember.setGender(gender);
-                addMember.setEmail(email);
-                memberRepository.save(addMember);
-                return "Success";
+    MemberInfo newMeberInfo(@RequestBody MemberInfo newMemberInfo) {
+        return memberRepository.save(newMemberInfo);
     }
     
-    @DeleteMapping ("delete/users/id")
+    @RequestMapping("/post/users/{id}")
+    MemberInfo updateMemberInfo(@RequestBody MemberInfo newMemberInfo, 
+            @PathVariable int id) {
+        return memberRepository.findById(id)
+                .map(memberInfo -> {
+                    memberInfo.setFirstName(newMemberInfo.getFirstName());
+                    memberInfo.setLastName(newMemberInfo.getLastName());
+                    memberInfo.setEmail(newMemberInfo.getEmail());
+                    return memberRepository.save(memberInfo);
+                })
+                .orElseGet(() -> {
+                    newMemberInfo.setId(id);
+                    return memberRepository.save(newMemberInfo);
+                });
+    }
+
+    
+    @RequestMapping ("delete/users/id")
     String deleteById(int id) {
         memberRepository.deleteById(id);
         return "Success";
