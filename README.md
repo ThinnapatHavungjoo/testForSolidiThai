@@ -5,12 +5,12 @@ This test I dicided to design and implement Back end service using Java Spring b
 I simulated RESTful APIs about subscript member for users.
 
 Setup Development Environment.
-	Language : JDK(java 20)
-	Framwork : Springboot (Lastest Version)
-	Project : Maven Project
-	IDE : netbean18
-	Database : MySQL server
-	OS : Window
+Language : JDK(java 20)
+Framwork : Springboot (Lastest Version)
+Project : Maven Project
+IDE : netbean18
+Database : MySQL server
+OS : Window
 
 
 First I have done to create My Project Test and Database to connected them.
@@ -30,7 +30,6 @@ echo "" > code/service/MemberRepository.java
 echo "" > test/service/Test.java
 mkdir web
 echo " " > application.properties
-
 
 Created Database using MySQL server.
 
