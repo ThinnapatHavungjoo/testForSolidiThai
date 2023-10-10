@@ -5,12 +5,12 @@ This test I dicided to design and implement Back end service using Java Spring b
 I simulated RESTful APIs about subscript member for users.
 
 Setup Development Environment.
-1.Language : JDK(java 20)
-2.Framwork : Springboot (Lastest Version)
-3.Project : Maven Project
-4.IDE : netbean18
-5.Database : MySQL server
-6.OS : Window
+ 1. Language : JDK(java 20)
+ 2. Framwork : Springboot (Lastest Version)
+ 3. Project : Maven Project
+ 4. IDE : netbean18
+ 5. Database : MySQL server
+ 6. OS : Window
 
 
 First I have done to create My Project Test and Database to connected them.
@@ -40,24 +40,24 @@ Design Database:
 If you want to run this code you can follow in 3. or you can change some code in Start.java and add Entity class for creat database.
 
 
-1. User data 
-	1.1 ID
-	1.2 First name
-	1.3 Last name 
-	1.4 E-mail
+1. User data
+   	1.1 ID
+   	1.2 First name
+   	1.3 Last name
+   	1.4 E-mail
 2. Set data importance
-	2.1 ID run auto.
-	2.2 First name and Last name is an importance.
-	2.3 data 1.4 don't repact
+   	2.1 ID run auto.
+   	2.2 First name and Last name is an importance.
+   	2.3 data 1.4 don't repact
 3. Create database:
-create database memberdb;
-use memberdb;
-create table memberInfo(
-	id integer unique not null auto_increment,
-	first_name varchar(80) not null unique,
-	last_name varchar(80) not null unique,
-	email varchar(200) not null unique
-);
+	3.1 create database memberdb;
+	3.2 use memberdb;
+   	3.3 create table memberInfo(
+		id integer unique not null auto_increment,
+		first_name varchar(80) not null unique,
+		last_name varchar(80) not null unique,
+		email varchar(200) not null unique
+	    );
 
 Test to insert data to memberInfo.
 
