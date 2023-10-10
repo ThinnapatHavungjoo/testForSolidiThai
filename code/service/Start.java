@@ -23,59 +23,46 @@ class Setup {
     }
 }
 
-@Table ("member_info")
-class Member_info {
+@Table ("memberInfo")
+class MemberInfo {
     @Id private int id;
-    private String first_name;
-    private String last_name;
-    private char gender;
+    private String firstName;
+    private String lastName;
     private String email;
     
-    public Member_info() {}
+    public MemberInfo() {}
     
-    public Member_info(String first_name, String last_name, char gender, String email) {
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.gender = gender;
+    public MemberInfo(String firstName, String lastName, char gender, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
     }
     
     public void setId(int id) {
         this.id = id;
     }
-    
+        
     public int getId() {
-        return id;
+        return this.id;
     }
-    
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name.substring(0, 1).toUpperCase() + 
-                first_name.substring(1).toLowerCase();
-    }
-        
-    public String getFirst_name() {
-        return first_name;
-    }
-    
-    public void setLast_name(String last_name) {
-        this.last_name = last_name.substring(0, 1).toUpperCase() +
-                last_name.substring(1).toLowerCase();
-    }
-    
-    public String getLast_name() {
-        return last_name;
-    }
-    
-    public void setGender(char gender) {
-        if (gender == 'M') {this.gender = 'M';}
-        if (gender == 'F') {this.gender = 'F';}
-        if (gender == 'O') {this.gender = 'O';}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName.substring(0, 1).toUpperCase() + 
+                firstName.substring(1).toLowerCase();
     }
         
-    public char getGender() {
-        return gender;
+    public String getFirstName() {
+        return firstName;
     }
     
+    public void setLastName(String lastName) {
+        this.lastName = lastName.substring(0, 1).toUpperCase() +
+                lastName.substring(1).toLowerCase();
+    }
+    
+    public String getLastName() {
+        return lastName;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }

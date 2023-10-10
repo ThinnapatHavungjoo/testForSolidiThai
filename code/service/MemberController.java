@@ -16,18 +16,28 @@ class MemberController {
     Optional showById(int id){
         return memberRepository.findById(id);
     }
-    
-    @RequestMapping("/post/users")
-    public String addUsers(String first_name, String last_name, char gender, 
-            String email) {
-                Member_info addMember = new Member_info();
-                addMember.setFirst_name(first_name);
-                addMember.setLast_name(last_name);
-                addMember.setGender(gender);
-                addMember.setEmail(email);
-                memberRepository.save(addMember);
-                return "Success";
+
+    @PostMapping("/post/users")
+    MemberInfo newMeberInfo(@RequestBody MemberInfo newMemberInfo) {
+        return memberRepository.save(newMemberInfo);
     }
+    
+    @PutMapping("/post/users/{id}")
+    MemberInfo updateMemberInfo(@RequestBody MemberInfo newMemberInfo, 
+            @PathVariable int id) {
+        return memberRepository.findById(id)
+                .map(memberInfo -> {
+                    memberInfo.setFirstName(newMemberInfo.getFirstName());
+                    memberInfo.setLastName(newMemberInfo.getLastName());
+                    memberInfo.setEmail(newMemberInfo.getEmail());
+                    return memberRepository.save(memberInfo);
+                })
+                .orElseGet(() -> {
+                    newMemberInfo.setId(id);
+                    return memberRepository.save(newMemberInfo);
+                });
+    }
+
     
     @DeleteMapping ("delete/users/id")
     String deleteById(int id) {
