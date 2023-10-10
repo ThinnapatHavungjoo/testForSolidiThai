@@ -5,31 +5,31 @@ This test I dicided to design and implement Back end service using Java Spring b
 I simulated RESTful APIs about subscript member for users.
 
 Setup Development Environment.
-Language : JDK(java 20)
-Framwork : Springboot (Lastest Version)
-Project : Maven Project
-IDE : netbean18
-Database : MySQL server
-OS : Window
+1.Language : JDK(java 20)
+2.Framwork : Springboot (Lastest Version)
+3.Project : Maven Project
+4.IDE : netbean18
+5.Database : MySQL server
+6.OS : Window
 
 
 First I have done to create My Project Test and Database to connected them.
 
 I created My Project Test with Command Line. It for Custom libery.
 
-mkdir testForSolidiThai
-cd testForSolidiThai
-echo "" > pom.xml    
-mkdir code
-mkdir code/service
-mkdir test
-mkdir test/service
-echo "" > code/service/Start.java
-echo "" > code/service/MemberController.java
-echo "" > code/service/MemberRepository.java
-echo "" > test/service/Test.java
-mkdir web
-echo " " > application.properties
+1. mkdir testForSolidiThai
+2. cd testForSolidiThai
+3. echo "" > pom.xml    
+4. mkdir code
+5. mkdir code/service
+6. mkdir test
+7. mkdir test/service
+8. echo "" > code/service/Start.java
+9. echo "" > code/service/MemberController.java
+10. echo "" > code/service/MemberRepository.java
+11. echo "" > test/service/Test.java
+12. mkdir web
+13. echo " " > application.properties
 
 Created Database using MySQL server.
 
